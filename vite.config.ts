@@ -22,8 +22,8 @@ export default defineConfig({
     rollupOptions: {
       external: ["vue"],
       output: {
-        entryFileNames: `[name]/[name].js`,
-        assetFileNames: `[name]/[name].[ext]`,
+        entryFileNames: `components/[name]/[name].js`,
+        assetFileNames: `components/[name]/[name].[ext]`,
         globals: { vue: "Vue" },
       },
     },
@@ -31,16 +31,20 @@ export default defineConfig({
 
   plugins: [
     vue(),
-    dts({ entryRoot: "./src/components", cleanVueFileName: true }),
+    dts({ entryRoot: "./src/components", cleanVueFileName: true, outDir: "dist/components" }),
     viteStaticCopy({
       targets: [
         {
-          src: "src/components/index.js",
+          src: "src/index.js",
           dest: "",
           transform: (contents) => contents.toString().replace(/.vue/g, ""),
         },
         {
-          src: "src/components/index.js",
+          src: "src/helpers",
+          dest: "",
+        },
+        {
+          src: "src/index.js",
           dest: "",
           rename: "index.d.ts",
           transform: (contents) => contents.toString().replace(/.vue/g, ""),

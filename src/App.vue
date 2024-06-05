@@ -9,21 +9,22 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from "vue";
+import { ref } from "vue";
 
-  import "./assets/style.css";
+import "./assets/style.css";
 
-  import { UiButton, UiInput } from "./components";
+import { UiButton, UiInput } from "./";
 
-  const message = ref("");
-  const messageDisabled = ref("disabled");
+const message = ref("");
+const messageDisabled = ref("disabled");
 </script>
 
 <style module>
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-  }
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
 </style>
+.
